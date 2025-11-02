@@ -45,9 +45,6 @@ Thumbs.db
 *.bak
 *.cache
 
-# Mentee work (they'll have their own repo)
-mentee-work/
-
 # Local development
 .env
 .env.local
