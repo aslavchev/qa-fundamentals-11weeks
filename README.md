@@ -153,7 +153,7 @@ qa-fundamentals-11week/
 
 3. **End of Week:**
    - Complete `checklist.md` items
-   - Commit all work to GitHub
+   - Submit work via Pull Request (see below)
    - Prepare questions for mentor session
 
 4. **Weekly Mentor Session:**
@@ -161,6 +161,34 @@ qa-fundamentals-11week/
    - Get feedback
    - Clarify concepts
    - Plan next week
+
+### 📤 Submitting Your Work
+
+All weekly work must be submitted through **Pull Requests (PRs)** for review.
+
+**📘 Complete Guide**: See [docs/mentor/pr-workflow.md](docs/mentor/pr-workflow.md) for detailed instructions.
+
+**Quick Start:**
+```bash
+# Create branch, complete work, then:
+git checkout -b week-XX-work
+git add mentee-work/week-XX/
+git commit -m "Week XX: [description]"
+git push -u origin week-XX-work
+
+# Create PR assigned to mentor
+gh pr create --base main --head week-XX-work \
+  --title "Week XX: [Title]" \
+  --body "Week XX exercises completed" \
+  --assignee aslavchev
+```
+
+**Key Rules:**
+- ✅ Check for open issues BEFORE starting new week
+- ✅ Use hyphens in filenames (not underscores)
+- ✅ Write all content in English
+- ✅ Always assign PRs to @aslavchev
+- ✅ One PR = One concern (never mix corrections with new work)
 
 ---
 
