@@ -120,7 +120,7 @@ Checkout Form → [user & order data] → Payment System → [confirmation respo
 ### Integration Test Scenario #5
 
 **Test ID:** INT-5
-**Test Title:** [Clear title]
+**Test Title:** Verify order completion goes correctly to confirmation page
 **Components Under Test:** Order Completion ↔ Confirmation
 
 **Objective:**  
