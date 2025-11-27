@@ -75,7 +75,7 @@
 ---
 
 ## 6. Checkout Complete
-- **Load Time:** 37 s
+- **Load Time:** 37 ms
 - **Total Transfer Size:** 226 KB
 - **Total Resource Size:** 769 KB
 - **Resource Count:** 18
