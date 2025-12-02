@@ -1,63 +1,50 @@
 # Boundary Value Analysis (BVA) – SauceDemo  
 
-- **min - 1**
-- **min**
-- **min + 1**
-- **max - 1**
-- **max**
-- **max + 1**
+## Objective
+Apply Boundary Value Analysis to real boundaries present in SauceDemo.
 
-### 3-Value BVA
-Tests boundary, just inside, just outside.
+## System Under Test
+Checkout Step One form.
 
-| Purpose | Value | Expected Result |
-|---------|--------|------------------|
-| Below minimum | **0** | Invalid – item cannot be 0 |
-| Minimum | **1** | Valid – add to cart works |
-| Just above minimum | **2** | Valid |
-| Just below maximum | **98** | Valid |
-| Maximum | **99** | Valid |
-| Above maximum | **100** | Invalid – should be rejected |
+### 1. **Minimum Input Length Boundary**
+Each field must contain at least *one visible character*.
 
+| Test | Input | Expected |
+|------|--------|---------|
+| min-1 | "" | Error |
+| min | "A" | Accept |
+| min+1 | "AB" | Accept |
 
-## 2-Value BVA
-Tests only the boundary and one value outside it.
+### 2. **Whitespace Boundary**
+| Test | Input | Expected |
+|------|--------|---------|
+| Empty | "" | Error |
+| Whitespace | "   " | Error |
+| Non-empty | "A" | Accept |
 
-| Value | Expected Result |
-|--------|------------------|
-| 0 | Invalid |
-| 1 | Valid |
-| 99 | Valid |
-| 100 | Invalid |
+### 3. **Very Long Input Boundary**
 
+Assume boundary at 255 chars (common frontend limit).
 
-## Complete BVA Test Cases
+| Test | Input Length | Expected |
+|------|---------------|----------|
+| max-1 | 254 chars | Accept |
+| max | 255 chars | Accept |
+| max+1 | 256 chars | Accept (no restriction) |
 
-### **TC1: Enter quantity = 0**  
-Expected: System blocks adding item (invalid).
+### 4. **Zip Code Numeric Boundary**
+Zip accepts anything except empty.
 
-### **TC2: Enter quantity = 1**  
-Expected: Item adds correctly.
+| Test | Input | Expected |
+|------|--------|---------|
+| min-1 | "" | Error |
+| min | "1" | Accept |
+| min+1 | "12" | Accept |
 
-### **TC3: Enter quantity = 2**  
-Expected: Item adds correctly.
+### Summary
+SauceDemo provides no numeric limit fields, so real BVA applies only to:
+- Empty vs non-empty
+- Whitespace vs characters
+- Various input lengths
 
-### **TC4: Enter quantity = 98**  
-Expected: Works normally.
-
-### **TC5: Enter quantity = 99**  
-Expected: Works normally.
-
-### **TC6: Enter quantity = 100**  
-Expected: Error or rejection.
-
-### **TC7: Negative quantity (-1)**  
-Expected: Invalid.
-
-### **TC8: Decimal quantity (0.5)**  
-Expected: Invalid.
-
-### **TC9: Very large quantity (99999)**  
-Expected: Should be rejected.
- 
-
+These are the true system boundaries.
