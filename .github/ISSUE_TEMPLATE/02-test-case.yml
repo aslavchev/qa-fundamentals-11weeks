@@ -1,0 +1,149 @@
+name: 🧪 Test Case
+description: Create a test case for SauceDemo (Week 8+)
+title: "[TEST] "
+labels: ["test:manual"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Create a Test Case
+        This template will be used in Week 8+ to track test cases in GitHub Projects.
+
+  - type: input
+    id: test-id
+    attributes:
+      label: Test Case ID
+      description: Use format TC-[MODULE]-[###] (will auto-populate with issue number)
+      placeholder: e.g., TC-LOGIN-045
+    validations:
+      required: false
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Test Objective
+      description: Brief 1-2 sentence description of what this test validates
+      placeholder: What does this test validate?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Critical
+        - High
+        - Medium
+        - Low
+    validations:
+      required: true
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      description: Which module does this test belong to?
+      options:
+        - Login
+        - Inventory
+        - Cart
+        - Checkout
+        - User Account
+        - Navigation
+    validations:
+      required: true
+
+  - type: dropdown
+    id: test-type
+    attributes:
+      label: Test Type
+      description: Select primary test type
+      options:
+        - Functional
+        - Regression
+        - Smoke
+        - Integration
+        - E2E
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: test-suite
+    attributes:
+      label: Test Suite Assignment
+      description: Which test suites should this test be part of?
+      options:
+        - label: Regression Suite
+        - label: Smoke Suite
+        - label: Full Suite
+
+  - type: textarea
+    id: preconditions
+    attributes:
+      label: Preconditions
+      description: What must be true before running this test?
+      placeholder: |
+        - User is on login page
+        - Database is in clean state
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Test Steps
+      description: Clear, numbered steps to execute this test
+      placeholder: |
+        1. Navigate to https://www.saucedemo.com/
+        2. Enter username: standard_user
+        3. Enter password: secret_sauce
+        4. Click Login button
+        5. Verify redirect to /inventory.html
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Result
+      description: What should happen when test passes?
+    validations:
+      required: true
+
+  - type: textarea
+    id: test-data
+    attributes:
+      label: Test Data
+      description: Any specific data needed
+      placeholder: |
+        - Username: standard_user
+        - Password: secret_sauce
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Any
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Optional - Edge cases, known issues, dependencies
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **After creating this issue:**
+        - Add to "SauceDemo Test Suite" GitHub Project
+        - Set custom fields: Test Type, Test Suite, Automation Status
+        - Link to related requirements/stories

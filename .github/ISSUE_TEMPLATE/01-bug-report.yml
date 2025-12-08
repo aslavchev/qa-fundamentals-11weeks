@@ -1,0 +1,98 @@
+name: 🐛 Bug Report
+description: Report an issue with the repository or curriculum materials
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Thanks for reporting a bug!
+        Please fill out the sections below to help us fix the issue.
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this bug?
+      options:
+        - Critical (blocks progress)
+        - High (major issue)
+        - Medium (inconvenient)
+        - Low (minor)
+    validations:
+      required: true
+
+  - type: input
+    id: location-file
+    attributes:
+      label: File/Folder
+      description: Where is the bug located?
+      placeholder: e.g., curriculum/week-03-functional-testing/tutorial.md
+    validations:
+      required: true
+
+  - type: input
+    id: location-section
+    attributes:
+      label: Section
+      description: Specific section, line, or exercise
+      placeholder: e.g., Line 45, Section 3.2, Exercise 4
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: Clear description of what the bug is
+      placeholder: What's wrong?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this bug?
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, drag and drop screenshots here
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other information about the problem
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and this is not a duplicate
+          required: true
+        - label: This is about the repository/curriculum, not a learning question
+          required: true

@@ -111,8 +111,11 @@ qa-fundamentals-11weeks/
 ├── .github/
 │   ├── pull_request_template.md
 │   └── ISSUE_TEMPLATE/
-│       ├── question.md
-│       └── bug-report.md
+│       ├── config.yml (template chooser)
+│       ├── 01-bug-report.yml
+│       ├── 02-test-case.yml
+│       ├── 03-feature-request.yml
+│       └── 04-question.md
 │
 ├── curriculum/
 │   ├── week-01-qa-foundations/
@@ -299,8 +302,8 @@ Your mentee will be ready for:
 5. **Mentee addresses feedback** and merges
 
 ### Issue Tracking
-- Use GitHub Issues for questions
-- Tag with week number (e.g., `week-03`)
+- Use GitHub Issue Templates (Bug Report, Test Case, Feature Request, Question)
+- Templates provide structured format for faster resolution
 - Mentor responds within 24 hours
 
 ### Discussions
@@ -324,13 +327,21 @@ Your mentee will be ready for:
 
 ## 📞 Support & Questions
 
-### For Program Questions
-- Create a GitHub Issue with tag `program-question`
-- Mentor will respond within 24 hours
+**Use GitHub Issue Templates** for structured support:
 
-### For Technical Help
-- Create a GitHub Issue with tag `technical-help`
-- Include screenshots and error details
+### 🐛 Bug Report
+Found an issue with curriculum materials or exercises? Use the Bug Report template.
+
+### 🧪 Test Case (Week 8+)
+Track your test cases using the Test Case template in GitHub Projects.
+
+### ✨ Feature Request
+Suggest improvements to the curriculum or new exercises.
+
+### 💬 Question
+General questions about the program? Use the Question template.
+
+**Response Time**: Mentor responds within 24 hours.
 
 ### For Career Guidance
 - Discuss during weekly mentor sessions
