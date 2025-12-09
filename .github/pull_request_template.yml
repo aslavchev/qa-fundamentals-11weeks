@@ -1,0 +1,186 @@
+name: 📚 Week Submission
+description: Submit your weekly QA Fundamentals work
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Week Submission
+        Complete all sections below for your weekly submission.
+
+  - type: dropdown
+    id: week
+    attributes:
+      label: Week Number
+      options:
+        - Week 01 - QA Foundations
+        - Week 02 - Test Levels
+        - Week 03 - Functional Testing
+        - Week 04 - Non-Functional Testing
+        - Week 05 - Test Design (Basic)
+        - Week 06 - Test Design (Advanced)
+        - Week 07 - Test Planning
+        - Week 08 - Test Case Management
+        - Week 09 - Agile Testing & BDD
+        - Week 10 - Defect Management
+        - Week 11 - Python Basics
+    validations:
+      required: true
+
+  - type: input
+    id: mentee-name
+    attributes:
+      label: Mentee Name
+      placeholder: Your name
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: deliverables
+    attributes:
+      label: Completed Deliverables
+      options:
+        - label: All exercises completed
+          required: true
+        - label: Test cases written (if applicable)
+        - label: Bug reports documented (if applicable)
+        - label: All files in correct location (`mentee-work/week-XX/`)
+          required: true
+        - label: Followed templates from `curriculum/templates/`
+          required: true
+        - label: Reviewed my own work for quality
+          required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary of Work
+      description: Brief description of what you completed this week
+      placeholder: This week I focused on...
+    validations:
+      required: true
+
+  - type: textarea
+    id: challenges
+    attributes:
+      label: Questions or Challenges
+      description: Any questions for your mentor or challenges you encountered
+      placeholder: I struggled with... / I have questions about...
+
+  - type: textarea
+    id: learnings
+    attributes:
+      label: Key Learnings
+      description: What were your main takeaways from this week?
+      placeholder: I learned that...
+    validations:
+      required: true
+
+  - type: input
+    id: time-tutorial
+    attributes:
+      label: Time Spent - Reading Tutorial
+      description: Hours spent reading tutorial
+      placeholder: "3"
+
+  - type: input
+    id: time-exercises
+    attributes:
+      label: Time Spent - Completing Exercises
+      description: Hours spent on exercises
+      placeholder: "6"
+
+  - type: input
+    id: time-review
+    attributes:
+      label: Time Spent - Review & Refinement
+      description: Hours spent reviewing and refining work
+      placeholder: "1"
+
+  - type: input
+    id: time-total
+    attributes:
+      label: Total Time Spent
+      description: Total hours this week
+      placeholder: "10"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: completeness
+    attributes:
+      label: Self-Assessment - Completeness
+      description: Rate 1-5 (1=needs work, 5=excellent)
+      options:
+        - "5 - Excellent"
+        - "4 - Good"
+        - "3 - Satisfactory"
+        - "2 - Needs Improvement"
+        - "1 - Needs Work"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: quality
+    attributes:
+      label: Self-Assessment - Quality
+      description: Rate 1-5 (1=needs work, 5=excellent)
+      options:
+        - "5 - Excellent"
+        - "4 - Good"
+        - "3 - Satisfactory"
+        - "2 - Needs Improvement"
+        - "1 - Needs Work"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: critical-thinking
+    attributes:
+      label: Self-Assessment - Critical Thinking
+      description: Rate 1-5 (1=needs work, 5=excellent)
+      options:
+        - "5 - Excellent"
+        - "4 - Good"
+        - "3 - Satisfactory"
+        - "2 - Needs Improvement"
+        - "1 - Needs Work"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: professionalism
+    attributes:
+      label: Self-Assessment - Professionalism
+      description: Rate 1-5 (1=needs work, 5=excellent)
+      options:
+        - "5 - Excellent"
+        - "4 - Good"
+        - "3 - Satisfactory"
+        - "2 - Needs Improvement"
+        - "1 - Needs Work"
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      description: Any other information for your mentor
+
+  - type: checkboxes
+    id: pre-submit
+    attributes:
+      label: Pre-Submission Checklist
+      options:
+        - label: All files committed to `mentee-work/week-XX/` folder
+          required: true
+        - label: Branch named `week-XX-your-name`
+          required: true
+        - label: Commit messages are clear and descriptive
+          required: true
+        - label: Reviewed CONTRIBUTING.md guidelines
+          required: false
+        - label: Self-reviewed work for quality and completeness
+          required: true
+        - label: Ready for mentor feedback
+          required: true
