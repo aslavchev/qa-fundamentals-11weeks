@@ -15,70 +15,67 @@
 **Defect Leakage:** 16.7%
 
 **Quality Assessment:** ⚠️ Concern  
-**Key Finding:** Most defects are medium-severity usability and state issues, with checkout identified as the highest-risk area.
+**Key Finding:** Most defects are medium-severity UX/state issues, with Checkout identified as the highest-risk area.
 
 ---
 
 ## Metric 1: Defect Density
 
-**Formula:**  
-Defect Density = Total Defects / Test Cases Executed
-
-**Calculation:**  
-10 defects / 60 test cases = **0.17 defects per test case**
+**Formula:** Total Defects / Test Cases Executed  
+**Calculation:** 10 defects / 60 test cases = **0.17** defects per test case
 
 **Interpretation:**
-- Industry Benchmark (first test cycle): **0.10 – 0.25**
+- Industry Benchmark (first cycle): **0.10 – 0.25**
 - Our Result: **Within benchmark**
 - **Analysis:**  
-  The defect density indicates a normal level of issues for a first full exploratory cycle. This suggests decent baseline quality, but also shows that exploratory testing successfully uncovered meaningful problems beyond scripted tests.
+  Density indicates a normal level of issues for an initial testing cycle. Exploratory testing still uncovered meaningful state and UX risks.
 
 ---
 
 ## Metric 2: Defect Distribution by Severity
 
 | Severity | Count | Percentage | Target Range | Status |
-|--------|-------|------------|--------------|--------|
+|----------|-------|------------|--------------|--------|
 | S1 (Critical) | 0 | 0% | < 10% | ✅ |
 | S2 (High) | 1 | 10% | 20–30% | ⚠️ |
-| S3 (Medium) | 5 | 50% | 40–50% | ✅ |
-| S4 (Low) | 4 | 40% | 20–30% | ⚠️ |
+| S3 (Medium) | 6 | 60% | 40–50% | ⚠️ |
+| S4 (Low) | 3 | 30% | 20–30% | ✅ |
 | **Total** | **10** | **100%** | - | - |
 
 **Text Chart:**
 - S2 High: ████ 10%  
-- S3 Medium: ████████████████ 50%  
-- S4 Low: ██████████ 40%
+- S3 Medium: ████████████████████ 60%  
+- S4 Low: ██████████ 30%
 
 **Analysis:**
-- Healthy absence of critical (S1) defects
-- High percentage of medium and low issues indicates usability, validation, and state management weaknesses
-- Slightly elevated low-severity issues suggest polish gaps rather than functional failures
+- No critical defects found (good baseline stability)
+- Higher share of S3 suggests UX/state/validation issues that can impact confidence
+- Low severity issues are still present but within expected range
 
 ---
 
 ## Metric 3: Defect Distribution by Module
 
 | Module | Count | Percentage | Status |
-|------|-------|------------|--------|
-| Login | 3 | 30% | Normal |
+|--------|-------|------------|--------|
+| Login | 2 | 20% | Normal |
 | Products | 2 | 20% | Normal |
 | Cart | 2 | 20% | Normal |
-| Checkout | 2 | 20% | ⚠️ Hotspot |
+| Checkout | 3 | 30% | ⚠️ Hotspot |
 | Cross-cutting | 1 | 10% | Normal |
 | **Total** | **10** | **100%** | - |
 
 **Text Chart:**
-- Login: ████████ (3)  
+- Login: ██████ (2)  
 - Products: ██████ (2)  
 - Cart: ██████ (2)  
-- Checkout: ██████ (2) ⚠️  
+- Checkout: █████████ (3) ⚠️  
 - Cross-cutting: ███ (1)
 
-**Defect Hotspot:** Checkout (20%)
+**Defect Hotspot:** Checkout (3 bugs, 30%)
 
 **Analysis:**
-Checkout-related defects involve state validation and navigation, which are high-risk areas in real e-commerce systems. These issues warrant deeper regression and security testing.
+Checkout defects include state validation and navigation risks. In real e-commerce, checkout integrity is a high-risk area and should receive extra regression + negative-flow coverage.
 
 ---
 
@@ -88,76 +85,68 @@ Checkout-related defects involve state validation and navigation, which are high
 - Bugs found during testing: 10
 - Bugs assumed to escape to production: 2  
   - BUG-003 (Remove without confirmation – UX)
-  - BUG-008 (Persistent login error message)
+  - BUG-008 (Persistent login error message – UX)
 
 **Total Defects:** 12
 
-**Formula:**  
-DRE = (Testing Defects / Total Defects) × 100%
+**Formula:** (Testing Defects / Total Defects) × 100%  
+**Calculation:** 10 / 12 × 100% = **83.3%**
 
-**Calculation:**  
-10 / 12 × 100% = **83.3%**
-
-**Target:** 90%+
-
+**Target:** 90%+  
 **Result:** ❌ Below target
 
 **Analysis:**
-Lower-severity usability issues are more likely to escape to production. Improving exploratory testing focus on UX and edge cases could raise DRE closer to industry standards.
+Intermittent and low-severity UX issues are more likely to leak. Increasing focused UX exploratory sessions and adding explicit UX acceptance expectations could improve DRE.
 
 ---
 
 ## Metric 5: Defect Leakage
 
-**Formula:**  
-Defect Leakage = (Production Defects / Total Defects) × 100%
+**Formula:** (Production Defects / Total Defects) × 100%  
+**Calculation:** 2 / 12 × 100% = **16.7%**
 
-**Calculation:**  
-2 / 12 × 100% = **16.7%**
-
-**Target:** < 10%
-
+**Target:** < 10%  
 **Result:** ❌ Exceeds target
 
 **Escaped Bugs (Simulated):**
-1. **BUG-003:** No confirmation on remove – easily overlooked, low impact
-2. **BUG-008:** Error message persistence – cosmetic UX issue
+1. **BUG-003:** No confirmation/undo on removal – low impact, easy to miss
+2. **BUG-008:** Error message persists while editing – minor UX issue
 
 **Analysis:**
-Leakage is driven mainly by low-priority UX issues, suggesting the need for clearer UX acceptance criteria and explicit exploratory UX sessions.
+Leakage is mainly driven by UX/visibility issues, which suggests improving UX checks and including them in Definition of Done / acceptance criteria where relevant.
 
 ---
 
 ## Metric 6: Defect Age (Not Applicable)
 
 **Note:**  
-Defect age metrics cannot be calculated in this exercise because bugs are not tracked across time states (New → Fixed → Closed). In a real project, defect aging would help identify process bottlenecks.
+Not tracked in this exercise. In real projects, defect age helps identify workflow bottlenecks and SLA performance.
 
 ---
 
 ## Key Insights
 
 ### 1. Overall Quality
-SauceDemo shows acceptable functional quality with no critical defects, but has notable usability and state-management gaps.
+SauceDemo has acceptable functional quality, but several medium issues exist in state handling and UX.
 
 ### 2. Testing Effectiveness
-Exploratory testing was effective in finding medium-severity issues, but UX defects are still likely to leak.
+Exploratory testing was effective for discovering state and workflow risks, but minor UX issues are more likely to escape.
 
 ### 3. Risk Areas
-Checkout is the riskiest module due to state and navigation flaws.
+Checkout is the riskiest module and should receive more negative-flow and state validation testing.
 
 ### 4. Recommendations
-- Add explicit checkout state validation test cases
-- Increase exploratory UX testing sessions
-- Add Definition of Done item: “State transitions validated (Back/Refresh/Direct URL)”
-- Introduce basic input format validation rules
+- Add explicit negative/state tests for checkout (direct URL, back/refresh behavior)
+- Add UX exploratory session checklist for “error message handling” and “mobile/responsive UI”
+- Update DoD: “State transitions validated (Back/Refresh/Direct URL)”
+- Add input-format validation expectations for postal code
 
 ---
 
 ## Metrics Dashboard Summary
 
 | Metric | Value | Target | Status |
-|------|-------|--------|--------|
+|--------|-------|--------|--------|
 | Defect Density | 0.17 | 0.10–0.25 | ✅ |
 | DRE | 83.3% | > 90% | ❌ |
 | Defect Leakage | 16.7% | < 10% | ❌ |
@@ -165,17 +154,4 @@ Checkout is the riskiest module due to state and navigation flaws.
 | Defect Hotspot | Checkout | Even distribution | ⚠️ |
 
 **Overall Grade:** **B**  
-**Justification:** Solid functional quality with room for improvement in UX coverage and preventive testing.
-
----
-
-## Reflection
-
-**What surprised you about the metrics?**  
-That most defects were not functional failures, but UX and state-related issues.
-
-**Which metric is most valuable?**  
-Defect Leakage – it clearly shows where testing needs to improve.
-
-**If you were QA Lead, what would you do next?**  
-Invest more time in exploratory UX testing and strengthen checkout-related test coverage.
+**Justification:** Solid functional baseline, but improvements needed in UX coverage and state-related regression around checkout.

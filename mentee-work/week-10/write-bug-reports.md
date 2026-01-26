@@ -23,7 +23,7 @@
 
 ---
 
-## BUG-001: Checkout pages accessible directly (empty-cart checkout possible)
+## BUG-001: Checkout step pages accessible directly (empty-cart checkout possible)
 
 **Bug ID:** BUG-001  
 **Reported by:** Kamen Asenov  
@@ -67,10 +67,11 @@ A user can navigate directly to checkout step pages via URL (e.g. `checkout-step
 - Cart is empty
 
 ### Test Data
-- Any names/zip
+- **User:** standard_user / secret_sauce
+- **Checkout info:** First Name: Test, Last Name: User, Zip: 1000
 
 ### Attachments
-- Screenshot: `bug_001_1.png` 
+- Screenshot: `mentee-work/week-10/evidence/bug_001_1.png`
 
 ### Additional Notes
 - This is a state validation issue. In real e-commerce, this could enable invalid order creation or inconsistent order totals.
@@ -120,11 +121,13 @@ Checkout accepts non-numeric zip/postal codes such as "ABCDE". This reduces data
 - At least one item in cart
 
 ### Test Data
+- **User:** standard_user / secret_sauce
+- **Product:** Sauce Labs Backpack
 - **Zip:** ABCDE
 
 ### Attachments
-- Screenshot: `bug_002_1.png`
-- Screenshot (result/overview): `bug_002_2.png`
+- Screenshot: `mentee-work/week-10/evidence/bug_002_1.png`
+- Screenshot (result/overview): `mentee-work/week-10/evidence/bug_002_2.png`
 
 ---
 
@@ -168,11 +171,12 @@ Clicking "Remove" instantly removes the item without confirmation or undo. This 
 - At least one item in cart
 
 ### Test Data
-- Any product
+- **User:** standard_user / secret_sauce
+- **Product:** Sauce Labs Backpack
 
 ### Attachments
-- Screenshot (cart with item): `bug_003_1.png`
-- Screenshot (after removal): `bug_003_2.png`
+- Screenshot (cart with item): `mentee-work/week-10/evidence/bug_003_1.png`
+- Screenshot (after removal): `mentee-work/week-10/evidence/bug_003_2.png`
 
 ---
 
@@ -214,9 +218,17 @@ After login, the sort dropdown indicates "Name (A to Z)" but the product list on
 ### Preconditions
 - Logged in as standard_user
 
+### Test Data
+- **User:** standard_user / secret_sauce
+- **Sort label on load:** Name (A to Z)
+- **Verification approach:** compare visible product names order (A→Z)
+
 ### Attachments
-- Screenshot (dropdown shows A→Z): `bug_004_1.png`
-- Screenshot (after selecting different sort): `bug_004_2.png`
+- Screenshot (dropdown shows A→Z): `mentee-work/week-10/evidence/bug_004_1.png`
+- Screenshot (after selecting different sort): `mentee-work/week-10/evidence/bug_004_2.png`
+
+### Additional Notes
+- **Repro rate:** Intermittent – reproduced **3/5 attempts** after fresh login as `standard_user` (Chrome).
 
 ---
 
@@ -261,8 +273,13 @@ On narrow/mobile viewport, the cart badge overlaps the cart icon making it hard 
 - Logged in
 - Multiple items added
 
+### Test Data
+- **User:** standard_user / secret_sauce
+- **Viewport:** iPhone 12 (390x844) or width ~390px
+- **Cart items added:** 3 (e.g., Sauce Labs Backpack, Bike Light, Bolt T-Shirt)
+
 ### Attachments
-- Screenshot: `bug_005_1.png`
+- Screenshot: `mentee-work/week-10/evidence/bug_005_1.png`
 
 ---
 
@@ -309,7 +326,7 @@ When logged in as `problem_user`, product images are mismatched (image displayed
 - **User:** problem_user / secret_sauce
 
 ### Attachments
-- Screenshot: `bug_006_1.png`
+- Screenshot: `mentee-work/week-10/evidence/bug_006_1.png`
 
 ---
 
@@ -352,8 +369,17 @@ After completing an order, using browser Back may allow the user to revisit prev
 ### Preconditions
 - Order completed
 
+### Test Data
+- **User:** standard_user / secret_sauce
+- **Product:** Sauce Labs Backpack
+- **Checkout info:** First Name: Test, Last Name: User, Zip: 1000
+- **Navigation:** browser Back button from `checkout-complete.html`
+
 ### Attachments
-- Screenshot: `bug_007_1.png`
+- Screenshot: `mentee-work/week-10/evidence/bug_007_1.png`
+
+### Additional Notes
+- **Repro rate:** Intermittent – reproduced **3/5 attempts** when using browser Back immediately after reaching `checkout-complete.html`.
 
 ---
 
@@ -394,9 +420,13 @@ After a failed login attempt, the error message remains visible even while the u
 **Severity:** S4 (Low)  
 **Priority:** P3 (Low)
 
+### Test Data
+- **Invalid credentials used:** wrong_user / wrong_pass
+- **Then edited to:** standard_user / secret_sauce (without resubmitting yet)
+
 ### Attachments
-- Screenshot: `bug_008_1.png`
-- Screenshot (while editing and error still visible): `bug_008_2.png`
+- Screenshot: `mentee-work/week-10/evidence/bug_008_1.png`
+- Screenshot (while editing and error still visible): `mentee-work/week-10/evidence/bug_008_2.png`
 
 ---
 
@@ -443,7 +473,7 @@ When logging in with `performance_glitch_user`, the login action takes significa
 - **User:** performance_glitch_user / secret_sauce
 
 ### Attachments
-- Screenshot/video: `bug_009_1.png`
+- Screenshot/video: `mentee-work/week-10/evidence/bug_009_1.png`
 
 ---
 
@@ -485,8 +515,16 @@ When navigating the UI using keyboard-only (Tab/Shift+Tab), focus indication on 
 ### Preconditions
 - Logged in
 
+### Test Data
+- **User:** standard_user / secret_sauce
+- **Input method:** Keyboard-only (Tab / Shift+Tab / Enter)
+- **Pages checked:** inventory.html (header controls, sort dropdown, add-to-cart buttons)
+
 ### Attachments
-- Screenshot: `bug_010_1.png`
+- Screenshot: `mentee-work/week-10/evidence/bug_010_1.png`
+
+### Additional Notes
+- **Repro rate:** Intermittent – focus visibility is weak/inconsistent on **3/5 attempts**, most noticeable on header controls when tabbing quickly.
 
 ---
 
@@ -495,12 +533,12 @@ When navigating the UI using keyboard-only (Tab/Shift+Tab), focus indication on 
 **Time spent:** ~2 hours  
 
 **Most challenging bug to document:** BUG-007  
-- Needs clearer proof (confirm whether finish can truly be triggered again vs only navigation).
+- Needed multiple attempts, so I documented an intermittent repro rate.
 
 **Most critical bug:** BUG-001  
-- It’s a state/security-type issue: checkout flow should validate cart state and prevent invalid flow entry.
+- Checkout/state validation issue: checkout flow should validate cart state and prevent invalid flow entry.
 
 **What I learned:**
 - Clear steps and exact data makes reproduction fast.
-- Security and state issues need stronger evidence (console logs + video help).
+- Security and state issues need strong evidence (screenshots/video help).
 - “Expected vs Actual” must be measurable to avoid ambiguity.

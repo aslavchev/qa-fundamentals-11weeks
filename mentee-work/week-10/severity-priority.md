@@ -14,8 +14,8 @@
 |----------|-------|------------|
 | S1 (Critical) | 0 | 0% |
 | S2 (High) | 1 | 10% |
-| S3 (Medium) | 5 | 50% |
-| S4 (Low) | 4 | 40% |
+| S3 (Medium) | 6 | 60% |
+| S4 (Low) | 3 | 30% |
 | **Total** | **10** | **100%** |
 
 ### Priority Distribution
@@ -70,7 +70,7 @@ Severity is Low because the cart functionality works as expected and users can r
 **Priority:** P2 (Medium)
 
 **Justification:**  
-Severity is Medium because there is a mismatch between UI state and actual product order, which can confuse users. Sorting still works correctly once reselected, so a workaround exists. Priority is Medium as this affects user trust and clarity but does not block shopping.
+Severity is Medium because there is a mismatch between UI state and visible product order on initial load, which can confuse users. Sorting still works correctly once reselected, so a workaround exists. Priority is Medium as this affects user trust and clarity but does not block shopping.
 
 ---
 
@@ -84,13 +84,13 @@ Severity is Medium because usability is reduced on mobile devices, but the cart 
 
 ---
 
-### BUG-006: problem_user shows incorrect/mismatched product images
+### BUG-006: problem_user: product images are incorrect/mismatched
 
 **Severity:** S3 (Medium)  
 **Priority:** P2 (Medium)
 
 **Justification:**  
-Severity is Medium because incorrect product images mislead users and affect the shopping experience, but ordering is still possible. Priority is Medium as this impacts user confidence but is limited to a specific test user.
+Severity is Medium because incorrect product images mislead users and affect the shopping experience, but ordering is still possible. Priority is Medium as this impacts user confidence, but it is limited to a specific test user.
 
 ---
 
@@ -100,7 +100,7 @@ Severity is Medium because incorrect product images mislead users and affect the
 **Priority:** P2 (Medium)
 
 **Justification:**  
-Severity is Medium because this is a state/idempotency risk that could cause duplicate actions in a real system. Priority is Medium since the issue occurs only through specific navigation behavior and does not block the standard flow.
+Severity is Medium because this is a state/idempotency risk that could cause duplicate actions in a real system. Priority is Medium since the issue occurs through specific navigation behavior and does not block the standard flow.
 
 ---
 
@@ -114,7 +114,7 @@ Severity is Low because login functionality works correctly and the issue is lim
 
 ---
 
-### BUG-009: performance_glitch_user login is very slow with no loading feedback
+### BUG-009: performance_glitch_user: login takes very long with no loading feedback
 
 **Severity:** S3 (Medium)  
 **Priority:** P2 (Medium)
@@ -124,7 +124,7 @@ Severity is Medium because the system eventually works, but lack of loading feed
 
 ---
 
-### BUG-010: Keyboard accessibility – focus indication is unclear
+### BUG-010: Keyboard accessibility: weak/unclear focus indication on interactive controls
 
 **Severity:** S4 (Low)  
 **Priority:** P3 (Low)
@@ -143,7 +143,7 @@ Severity is Low because the application remains usable with mouse input, and thi
 | BUG-003 | No undo on remove | S4 | P3 | Backlog |
 | BUG-004 | Sort label mismatch | S3 | P2 | Next sprint |
 | BUG-005 | Mobile badge overlap | S3 | P2 | Next sprint |
-| BUG-006 | Mismatched images | S3 | P2 | Next sprint |
+| BUG-006 | Mismatched images (problem_user) | S3 | P2 | Next sprint |
 | BUG-007 | Back button state issue | S3 | P2 | Next sprint |
 | BUG-008 | Persistent error message | S4 | P3 | Backlog |
 | BUG-009 | Slow login feedback | S3 | P2 | Next sprint |
@@ -154,16 +154,12 @@ Severity is Low because the application remains usable with mouse input, and thi
 ## Analysis
 
 **Most critical bug:** BUG-001 (S2 / P1)  
-- Affects checkout integrity and security-related state validation.
+- Affects checkout integrity and state/security validation.
 
-**Most common severity:** S3 (Medium) – 5 bugs  
+**Most common severity:** S3 (Medium) – 6 bugs  
 **Most common priority:** P2 (Medium) – 5 bugs  
 
-**Interesting cases:**
-- **Low Severity + High Visibility:** BUG-005 (mobile UI issue)
-- **State-related risks:** BUG-001, BUG-007
-
-**Recommended Fix Order:**
+**Fix order recommendation:**
 1. BUG-001
 2. BUG-002
 3. BUG-004
@@ -178,7 +174,7 @@ Severity is Low because the application remains usable with mouse input, and thi
 Balancing technical impact versus business urgency, especially for UX and state-related issues.
 
 **Did any bugs surprise you?**  
-BUG-001 stood out as more serious than it initially appeared due to its security/state implications.
+BUG-001 stood out as more serious due to its checkout/state implications.
 
 **How would you explain severity vs priority to a non-technical stakeholder?**  
 Severity describes how broken something is, while priority describes how urgently the business needs it fixed. A bug can be severe but not urgent, or urgent even if technically minor.
