@@ -121,7 +121,7 @@ Throughout the 11 weeks, your mentee will **progressively test the same applicat
 ## 📁 Repository Structure
 
 ```
-qa-fundamentals-11weeks/
+qa-mentorship-program/
 │
 ├── README.md (this file)
 ├── SETUP.md (mentee getting started guide)

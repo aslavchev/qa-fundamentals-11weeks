@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: 💬 Mentor Discussion
-    url: https://github.com/aslavchev/qa-fundamentals-11weeks/discussions
+    url: https://github.com/aslavchev/qa-mentorship-program/discussions
     about: General questions or discussions with your mentor
   - name: 📚 QA Fundamentals Documentation
-    url: https://github.com/aslavchev/qa-fundamentals-11weeks/blob/main/README.md
+    url: https://github.com/aslavchev/qa-mentorship-program/blob/main/README.md
     about: Program overview, weekly curriculum, and getting started

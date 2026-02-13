@@ -747,7 +747,7 @@ Convert your test cases into GitHub issues for tracking and management using Git
 
 **Part 1: Manual Practice - Create 5-10 Test Case Issues (20 min)**
 
-1. Navigate to: https://github.com/aslavchev/qa-fundamentals-11weeks/issues/new/choose
+1. Navigate to: https://github.com/aslavchev/qa-mentorship-program/issues/new/choose
 2. Select **"Test Case"** template
 3. **Manually convert 5-10 diverse test cases** (select from different modules):
    - 2 Login tests (1 positive, 1 negative)

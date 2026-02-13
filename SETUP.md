@@ -17,7 +17,7 @@ Welcome to the 11-Week QA Fundamentals Program! Follow these steps to get set up
 
 ```bash
 git clone [repository-url]
-cd qa-fundamentals-11weeks
+cd qa-mentorship-program
 ```
 
 ### 2. Configure Git
@@ -45,7 +45,7 @@ git checkout -b week-01-your-name
 ## 📁 Repository Structure
 
 ```
-qa-fundamentals-11weeks/
+qa-mentorship-program/
 ├── README.md                    # Program overview
 ├── CONTRIBUTING.md              # How to submit work
 ├── SETUP.md                     # This file
